@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+body {
+  @apply bg-graphite-950 text-bone font-body antialiased;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(255, 107, 44, 0.08), transparent),
+    radial-gradient(ellipse 60% 40% at 90% 10%, rgba(45, 212, 191, 0.06), transparent);
+  background-attachment: fixed;
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-graphite-800/60 backdrop-blur-md border border-white/[0.06] shadow-glass rounded-2xl;
+  }
+
+  .btn-primary {
+    @apply bg-ember-500 hover:bg-ember-600 text-graphite-950 font-semibold
+           px-6 py-3 rounded-xl transition-colors shadow-glow
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ember-400;
+  }
+
+  .btn-secondary {
+    @apply bg-white/5 hover:bg-white/10 text-bone font-medium px-6 py-3 rounded-xl
+           border border-white/10 transition-colors
+           focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/40;
+  }
+
+  .input-field {
+    @apply w-full bg-graphite-900 border border-white/10 rounded-xl px-4 py-3
+           text-bone placeholder:text-mute focus:outline-none focus:border-ember-500/60
+           focus:ring-1 focus:ring-ember-500/40 transition-colors;
+  }
+
+  .ai-badge {
+    @apply text-signal-400 text-xs font-mono tracking-wide uppercase;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
