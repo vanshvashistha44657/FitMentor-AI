@@ -35,6 +35,8 @@ jobs:
         run: npm ci
 
       - name: Build
+        env:
+          NEXT_PUBLIC_API_URL: https://your-backend-url.example.com/api/v1
         run: npm run build
 
       - name: Create .nojekyll
